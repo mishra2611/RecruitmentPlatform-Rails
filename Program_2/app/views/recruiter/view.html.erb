@@ -1,0 +1,13 @@
+<p>
+  <strong>Name:</strong>&nbsp;<%= @recruiters.name %><br>
+  <strong>email:</strong>&nbsp;<%= @recruiters.email %><br>
+  <strong>Phone:</strong>&nbsp;<%= @recruiters.phone %><br>
+  <strong>Company:</strong>&nbsp;<%= unless User.find_by_id(session[:user_id]).company.nil? then  User.find_by_id(session[:user_id]).company.name end %><br>
+
+</p>
+
+<%if session[:email] != 'admin517@gmail.com' then %>
+<%= link_to 'Edit Profile', recruiter_edit_path %> |
+  <% end %>
+
+ <%= link_to 'Back', recruiter_url %>

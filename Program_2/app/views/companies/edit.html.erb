@@ -1,0 +1,9 @@
+<h1>Editing Company</h1>
+
+<%= render 'form', company: @company %>
+
+<% if session[:usertype] == '2' then%>
+<%= link_to 'Back', @company %>
+<% else %>
+<%= link_to 'Back',companies_path %>
+<% end %>

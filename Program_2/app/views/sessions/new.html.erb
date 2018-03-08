@@ -1,0 +1,46 @@
+<head>
+  <title>Google Auth Example App</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<div>
+
+  <% if flash[:alert]%>
+    <p id="notice"><%=flash[:alert]%></p>
+  <% end %>
+
+  <%= form_tag do %>
+    <fieldset>
+      <legend> Returning User </legend>
+      <div>
+        <%= label_tag :email, 'Email' %>
+        <%= text_field_tag :email,params[:email]%>
+        <%= label_tag :password, 'Password' %>
+        <%= password_field_tag :password,params[:password]%>
+        <%= label_tag :usertype, 'User Type' %>
+        <%= select_tag(:usertype, options_for_select([["Admin",0],["Job-Seeker",1],["Recruiter",2]])) %>
+        <br>
+      </div>
+
+      <div>
+        <br>
+        <%= submit_tag "Login" %>
+      </div>
+
+    </fieldset>
+
+  <% end %>
+
+  <%= form_tag do %>
+    <fieldset>
+      <legend> New User </legend>
+      <div>
+        <%= submit_tag "Sign Up" %>
+      </div>
+    </fieldset>
+  <% end %>
+</div>
+
+
+<%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>

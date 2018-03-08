@@ -1,0 +1,32 @@
+<fieldset>
+<p1><b>Logged in as <%= current_user.name %> !! </b></p1>
+  <br>
+  <br>
+  <p1><b>Current user Role : Admin </b></p1>
+<br>
+</fieldset>
+<fieldset>
+  <div>
+    <br>
+    <%= link_to "View Profile" , user_path(current_user) %><br>
+    <br>
+  </div>
+</fieldset>
+
+<fieldset>
+  <div>
+    <br>
+    <%= link_to "Create New User Account" , new_user_path %> | &nbsp; <%= link_to "Create New Company" , new_company_path %> <br>
+    <br>
+  </div>
+</fieldset>
+<fieldset>
+  <div>
+    <br>
+    <%= link_to "View All Users", users_path %> &nbsp; | &nbsp;
+    <%= link_to "View All Companies", companies_path %>&nbsp; | &nbsp;
+    <%= link_to "View All Jobs", jobs_path %> &nbsp; | &nbsp;
+    <%= link_to "View All Job Applications", job_applications_path %><br>
+    <br>
+  </div>
+</fieldset>

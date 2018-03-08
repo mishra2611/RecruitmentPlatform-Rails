@@ -1,0 +1,1432 @@
+Started GET "/login" for 127.0.0.1 at 2018-02-25 01:12:08 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.3.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:135
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1891.9ms)
+Completed 200 OK in 2010ms (Views: 1984.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-02-25 01:12:25 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NbvkK/RWOfEYmJzTI0bw09S0xC/EJkT5vBue3rSlEah9V9S1N3NR5u3Y2aE0c3mkxS3gTDm6Nt044ftxMxcITw==", "email"=>"new@ncsu.edu", "password"=>"[FILTERED]", "usertype"=>"2", "commit"=>"Login"}
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "new@ncsu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7
+Redirected to http://localhost:3000/recruiter
+Completed 302 Found in 278ms (ActiveRecord: 7.6ms)
+
+
+Started GET "/recruiter" for 127.0.0.1 at 2018-02-25 01:12:26 -0500
+Processing by RecruiterController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:4
+  Rendering recruiter/new.html.erb within layouts/application
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/recruiter/new.html.erb:18
+  Rendered recruiter/new.html.erb within layouts/application (69.6ms)
+Completed 200 OK in 106ms (Views: 86.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/recruiter/view" for 127.0.0.1 at 2018-02-25 01:12:30 -0500
+Processing by RecruiterController#view as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:12
+  Rendering recruiter/view.html.erb within layouts/application
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/recruiter/view.html.erb:8
+  Rendered recruiter/view.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 78ms (Views: 49.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/recruiter/edit" for 127.0.0.1 at 2018-02-25 01:12:31 -0500
+Processing by RecruiterController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:20
+  Rendering recruiter/edit.html.erb within layouts/application
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT "companies".* FROM "companies" ORDER BY "companies"."name" ASC[0m
+  ↳ app/views/recruiter/edit.html.erb:12
+  Rendered recruiter/edit.html.erb within layouts/application (103.1ms)
+Completed 200 OK in 202ms (Views: 145.3ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/users/16" for 127.0.0.1 at 2018-02-25 01:12:36 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"g39ccdUQj2UrO8pmKnHn88sav4mCZqhKs+a4B1uxlV/DC1df9ZIo/8KWzJO72KzUTQlDLAv4MueRA3Rn8ASJBQ==", "user"=>{"name"=>"new", "email"=>"new@ncsu.edu", "phone"=>"9438533230", "company_id"=>"2"}, "commit"=>"Confirm", "id"=>"16"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:85
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:61
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:61
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? AND "users"."usertype" IS NULL LIMIT ?[0m  [["email", "new@ncsu.edu"], ["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:61
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "company_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["company_id", 2], ["updated_at", "2018-02-25 06:12:37.048124"], ["id", 16]]
+  ↳ app/controllers/users_controller.rb:61
+  [1m[35m (83.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:61
+Redirected to http://localhost:3000/users
+Completed 302 Found in 98ms (ActiveRecord: 85.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-02-25 01:12:37 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:17
+  Rendered users/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 89ms (Views: 50.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/recruiter" for 127.0.0.1 at 2018-02-25 01:15:33 -0500
+Processing by RecruiterController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:4
+  Rendering recruiter/new.html.erb within layouts/application
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/recruiter/new.html.erb:18
+  Rendered recruiter/new.html.erb within layouts/application (60.5ms)
+Completed 200 OK in 102ms (Views: 77.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/recruiter/view" for 127.0.0.1 at 2018-02-25 01:15:38 -0500
+Processing by RecruiterController#view as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:12
+  Rendering recruiter/view.html.erb within layouts/application
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/recruiter/view.html.erb:8
+  Rendered recruiter/view.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 45ms (Views: 41.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/recruiter/edit" for 127.0.0.1 at 2018-02-25 01:15:41 -0500
+Processing by RecruiterController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:20
+  Rendering recruiter/edit.html.erb within layouts/application
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" ORDER BY "companies"."name" ASC[0m
+  ↳ app/views/recruiter/edit.html.erb:12
+  Rendered recruiter/edit.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 58ms (Views: 51.6ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/users/16" for 127.0.0.1 at 2018-02-25 01:15:45 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kiTherOY4j51+eH3/gVnzm8HRXgKCCY3VpRdCAmQIyTSUOpUkxpFpJxU5wJvrCzp6RS53YOWvJp0cZFooiU/fg==", "user"=>{"name"=>"new", "email"=>"new@ncsu.edu", "phone"=>"9438533230", "company_id"=>"3"}, "commit"=>"Confirm", "id"=>"16"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:86
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:62
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:62
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? AND "users"."usertype" = ? LIMIT ?[0m  [["email", "new@ncsu.edu"], ["id", 16], ["usertype", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:62
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "company_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["company_id", 3], ["updated_at", "2018-02-25 06:15:45.148098"], ["id", 16]]
+  ↳ app/controllers/users_controller.rb:62
+  [1m[35m (91.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:62
+Redirected to http://localhost:3000/users
+Completed 302 Found in 102ms (ActiveRecord: 92.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-02-25 01:15:45 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:17
+  Rendered users/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 50ms (Views: 47.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-02-25 01:17:58 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:17
+  Rendered users/index.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 83ms (Views: 72.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/recruiter" for 127.0.0.1 at 2018-02-25 01:18:24 -0500
+Processing by RecruiterController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:4
+  Rendering recruiter/new.html.erb within layouts/application
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/recruiter/new.html.erb:18
+  Rendered recruiter/new.html.erb within layouts/application (69.5ms)
+Completed 200 OK in 94ms (Views: 88.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/recruiter/view_jobs" for 127.0.0.1 at 2018-02-25 01:18:33 -0500
+Processing by RecruiterController#view_jobs as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:39
+  Rendering recruiter/view_jobs.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."user_id" = ?[0m  [["user_id", 16]]
+  ↳ app/views/recruiter/view_jobs.html.erb:17
+  Rendered recruiter/view_jobs.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 161ms (Views: 70.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/recruiter" for 127.0.0.1 at 2018-02-25 01:18:45 -0500
+Processing by RecruiterController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:4
+  Rendering recruiter/new.html.erb within layouts/application
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/recruiter/new.html.erb:18
+  Rendered recruiter/new.html.erb within layouts/application (52.0ms)
+Completed 200 OK in 80ms (Views: 72.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/recruiter/view" for 127.0.0.1 at 2018-02-25 01:18:47 -0500
+Processing by RecruiterController#view as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:12
+  Rendering recruiter/view.html.erb within layouts/application
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/recruiter/view.html.erb:8
+  Rendered recruiter/view.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 42ms (Views: 38.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/recruiter/edit" for 127.0.0.1 at 2018-02-25 01:18:49 -0500
+Processing by RecruiterController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:20
+  Rendering recruiter/edit.html.erb within layouts/application
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT "companies".* FROM "companies" ORDER BY "companies"."name" ASC[0m
+  ↳ app/views/recruiter/edit.html.erb:12
+  Rendered recruiter/edit.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 54ms (Views: 48.3ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/users/16" for 127.0.0.1 at 2018-02-25 01:18:55 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"M8ZzXry9HCf+MGFyV0/EcMkMwmBqFzVbHITXDtAiHe5zsnhwnD+7vRedZ4fG5o9XTx8+xeOJr/Y+YRtue5cBtA==", "user"=>{"name"=>"new", "email"=>"new@ncsu.edu", "phone"=>"9438533230", "company_id"=>"2"}, "commit"=>"Confirm", "id"=>"16"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:87
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:63
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? AND "users"."usertype" = ? LIMIT ?[0m  [["email", "new@ncsu.edu"], ["id", 16], ["usertype", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "company_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["company_id", 2], ["updated_at", "2018-02-25 06:18:55.419714"], ["id", 16]]
+  ↳ app/controllers/users_controller.rb:63
+  [1m[35m (67.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:63
+Redirected to http://localhost:3000/users
+Completed 302 Found in 79ms (ActiveRecord: 68.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-02-25 01:18:55 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:17
+  Rendered users/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 45ms (Views: 43.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/recruiter" for 127.0.0.1 at 2018-02-25 01:22:51 -0500
+Processing by RecruiterController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:4
+  Rendering recruiter/new.html.erb within layouts/application
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/recruiter/new.html.erb:18
+  Rendered recruiter/new.html.erb within layouts/application (39.8ms)
+Completed 200 OK in 60ms (Views: 55.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/recruiter/view" for 127.0.0.1 at 2018-02-25 01:22:54 -0500
+Processing by RecruiterController#view as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:12
+  Rendering recruiter/view.html.erb within layouts/application
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/recruiter/view.html.erb:8
+  Rendered recruiter/view.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 43ms (Views: 39.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/recruiter/edit" for 127.0.0.1 at 2018-02-25 01:22:56 -0500
+Processing by RecruiterController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:20
+  Rendering recruiter/edit.html.erb within layouts/application
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" ORDER BY "companies"."name" ASC[0m
+  ↳ app/views/recruiter/edit.html.erb:12
+  Rendered recruiter/edit.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 64ms (Views: 59.1ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/users/16" for 127.0.0.1 at 2018-02-25 01:23:00 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OImThwkePIXHC1Q1C4JBBzeeGlXONTeEpETDxvrXujF4/ZipKZybHy6mUsCaKwogsY3m8EerrSmGoQ+mUWKmaw==", "user"=>{"name"=>"new", "email"=>"new@ncsu.edu", "phone"=>"9438533230", "company_id"=>"1"}, "commit"=>"Confirm", "id"=>"16"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:87
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:63
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? AND "users"."usertype" = ? LIMIT ?[0m  [["email", "new@ncsu.edu"], ["id", 16], ["usertype", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "company_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["company_id", 1], ["updated_at", "2018-02-25 06:23:00.409666"], ["id", 16]]
+  ↳ app/controllers/users_controller.rb:63
+  [1m[35m (70.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:63
+Redirected to http://localhost:3000/users
+Completed 302 Found in 84ms (ActiveRecord: 71.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-02-25 01:23:00 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:17
+  Rendered users/index.html.erb within layouts/application (121.5ms)
+Completed 500 Internal Server Error in 125ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    40: 
+    41:   <tbody>
+    42: 
+    43:   <% @jobs.each do |user| %>
+    44:     <tr>
+    45:       <td><%= user.id %></td>
+    46:       <td><%= user.user_id %></td>
+  
+app/views/users/index.html.erb:43:in `_app_views_users_index_html_erb__2801892458498293126_69940625746080'
+Started GET "/recruiter" for 127.0.0.1 at 2018-02-25 01:25:49 -0500
+Processing by RecruiterController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:4
+  Rendering recruiter/new.html.erb within layouts/application
+  [1m[36mCompany Load (0.9ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/recruiter/new.html.erb:18
+  Rendered recruiter/new.html.erb within layouts/application (101.7ms)
+Completed 200 OK in 144ms (Views: 118.4ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/recruiter/view" for 127.0.0.1 at 2018-02-25 01:25:53 -0500
+Processing by RecruiterController#view as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:12
+  Rendering recruiter/view.html.erb within layouts/application
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/recruiter/view.html.erb:8
+  Rendered recruiter/view.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 43ms (Views: 37.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/recruiter/edit" for 127.0.0.1 at 2018-02-25 01:25:54 -0500
+Processing by RecruiterController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:20
+  Rendering recruiter/edit.html.erb within layouts/application
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT "companies".* FROM "companies" ORDER BY "companies"."name" ASC[0m
+  ↳ app/views/recruiter/edit.html.erb:12
+  Rendered recruiter/edit.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 52ms (Views: 47.0ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/users/16" for 127.0.0.1 at 2018-02-25 01:25:57 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UVuQ1KcU+9u4mY9eLaUnEW/KhcWsaWY5Rr8J9K0eisARL5v6h5ZcQVE0iau8DGw26dl5YCX3/JRkWsWUBquWmg==", "user"=>{"name"=>"new", "email"=>"new@ncsu.edu", "phone"=>"9438533230", "company_id"=>"4"}, "commit"=>"Confirm", "id"=>"16"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:82
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:49
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:58
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:58
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? AND "users"."usertype" = ? LIMIT ?[0m  [["email", "new@ncsu.edu"], ["id", 16], ["usertype", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:58
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "company_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["company_id", 4], ["updated_at", "2018-02-25 06:25:57.901945"], ["id", 16]]
+  ↳ app/controllers/users_controller.rb:58
+  [1m[35m (86.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:58
+Redirected to http://localhost:3000/users
+Completed 302 Found in 98ms (ActiveRecord: 87.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-02-25 01:25:58 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:17
+  Rendered users/index.html.erb within layouts/application (11.1ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    40: 
+    41:   <tbody>
+    42: 
+    43:   <% @jobs.each do |user| %>
+    44:     <tr>
+    45:       <td><%= user.id %></td>
+    46:       <td><%= user.user_id %></td>
+  
+app/views/users/index.html.erb:43:in `_app_views_users_index_html_erb__2801892458498293126_69940624657440'
+Processing by SessionsController#new as HTML
+Completed 200 OK in 1870ms (Views: 1832.7ms | ActiveRecord: 0.0ms)
+
+
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4I6LIpKArLvXLxvvk3N0nT96nWetd94nBl8uH/+bmmNmPQrBblRImpSfYBbsaCzQjL1tYHn4MasyOLnT5NodfA==", "email"=>"sm", "password"=>"[FILTERED]", "usertype"=>"2", "commit"=>"Login"}
+Redirected to http://localhost:3000/users/new
+Completed 302 Found in 362ms (ActiveRecord: 0.7ms)
+
+
+Processing by UsersController#new as HTML
+Completed 200 OK in 251ms (Views: 220.0ms | ActiveRecord: 2.3ms)
+
+
+Processing by RecruiterController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Processing by SessionsController#new as HTML
+Completed 200 OK in 64ms (Views: 62.3ms | ActiveRecord: 0.0ms)
+
+
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VeB9eokf2/mTTRMxZpxr8LBZTOIGqC7fe1XGc5R1YWDTU/yZdcs/2ND9aMgZhzO9A5685dInwVNPMlG/jzTmfw==", "email"=>"new@ncsu.edu", "password"=>"[FILTERED]", "usertype"=>"2", "commit"=>"Login"}
+Redirected to http://localhost:3000/recruiter
+Completed 302 Found in 132ms (ActiveRecord: 0.2ms)
+
+
+Processing by RecruiterController#new as HTML
+Completed 200 OK in 292ms (Views: 223.5ms | ActiveRecord: 0.9ms)
+
+
+Processing by RecruiterController#view as HTML
+Completed 200 OK in 191ms (Views: 49.6ms | ActiveRecord: 0.5ms)
+
+
+Processing by RecruiterController#edit as HTML
+Completed 200 OK in 84ms (Views: 68.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-01 19:45:38 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Users/IDYA/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0.rc1/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2527.1ms)
+Completed 200 OK in 2912ms (Views: 2848.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-03-01 19:45:53 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HkZHIXCeL/7Ht+AUMT0w2gHEGBkWnEdSnJVhmxJXobWegtPNNBiJihjp0m64Wwzr/hQ6fjaSB8jvlavqQxiAng==", "email"=>"admin517@gmail.com", "password"=>"[FILTERED]", "usertype"=>"", "commit"=>"Login"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin517@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7
+Redirected to http://localhost:3000/users
+Completed 302 Found in 609ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-03-01 19:45:54 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:17
+  Rendered users/index.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 652ms (Views: 613.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-01 19:50:41 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (363.3ms)
+Completed 200 OK in 568ms (Views: 524.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-03-01 19:51:07 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Uvq8IT6zuF6ghyQzQDxaPUdjENvtqBBwnhKjkQ9g/VLSPijNejUeKn/ZFknJWmYMuLMyvM2mUOrtEmngXi/ceQ==", "email"=>"admin517@gmail.com", "password"=>"[FILTERED]", "usertype"=>"", "commit"=>"Login"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin517@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7
+Redirected to http://localhost:3000/users
+Completed 302 Found in 374ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-03-01 19:51:07 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:17
+  Rendered users/index.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 563ms (Views: 516.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-03-01 19:52:06 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Uvq8IT6zuF6ghyQzQDxaPUdjENvtqBBwnhKjkQ9g/VLSPijNejUeKn/ZFknJWmYMuLMyvM2mUOrtEmngXi/ceQ==", "email"=>"admin517@gmail.com", "password"=>"[FILTERED]", "usertype"=>"", "commit"=>"Login"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin517@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7
+Redirected to http://localhost:3000/
+Completed 302 Found in 277ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-01 19:52:09 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (378.3ms)
+Completed 200 OK in 597ms (Views: 542.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-03-01 19:52:19 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"azI3Y2QXZpMfVxr4Ipo1Bh87s5bgk9QbsNE3abmiwhvr9qOPIJHA58AJKIKr/Ak34OuR8cCdlIHD0f0Y6O3jMA==", "email"=>"admin517@gmail.com", "password"=>"[FILTERED]", "usertype"=>"", "commit"=>"Login"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin517@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7
+Redirected to http://localhost:3000/
+Completed 302 Found in 277ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-01 19:52:20 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (331.2ms)
+Completed 200 OK in 591ms (Views: 543.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-03-01 19:53:56 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LHQObr67kUsuhXkExcirujSavvL6TM+kseIMbLjx1MessJqC+j03P/HbS35MrpeLy0qcldpCjz7C4sYd6b717A==", "email"=>"admin517@gmail.com", "password"=>"[FILTERED]", "usertype"=>"", "commit"=>"Login"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin517@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7
+Redirected to http://localhost:3000/system_admin
+Completed 302 Found in 344ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/system_admin" for 127.0.0.1 at 2018-03-01 19:53:59 -0500
+Processing by SystemAdminController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering system_admin/index.html.erb within layouts/application
+  Rendered system_admin/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 553ms (Views: 467.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/system_admin" for 127.0.0.1 at 2018-03-01 19:55:43 -0500
+Processing by SystemAdminController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering system_admin/index.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered system_admin/index.html.erb within layouts/application (2135.5ms)
+Completed 500 Internal Server Error in 2315ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_type' for #<User:0x00000000076c4768>
+Did you mean?  usertype
+               usertype=
+               usertype?):
+    1: <h1>Logged in as <%= current_user.name %> !!</h1>
+    2: 
+    3: <br><br>
+    4: <% if current_user.user_type == '0' %>
+    5:   <p> Current user Role : Admin </p>
+    6:   <%= link_to "Edit Profile", edit_user_path(current_user) %>
+    7:   <br>
+  
+app/views/system_admin/index.html.erb:4:in `_app_views_system_admin_index_html_erb___1915849477_66221660'
+Started GET "/system_admin" for 127.0.0.1 at 2018-03-01 19:56:26 -0500
+Processing by SystemAdminController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering system_admin/index.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered system_admin/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 834ms (Views: 776.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/system_admin" for 127.0.0.1 at 2018-03-01 19:56:42 -0500
+Processing by SystemAdminController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering system_admin/index.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered system_admin/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 528ms (Views: 448.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/system_admin" for 127.0.0.1 at 2018-03-01 19:57:02 -0500
+Processing by SystemAdminController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering system_admin/index.html.erb within layouts/application
+  [1m[36mCACHE User Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered system_admin/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 584ms (Views: 503.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/system_admin" for 127.0.0.1 at 2018-03-01 19:57:29 -0500
+Processing by SystemAdminController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering system_admin/index.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered system_admin/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 752ms (Views: 713.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/system_admin" for 127.0.0.1 at 2018-03-01 20:05:43 -0500
+Processing by SystemAdminController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering system_admin/index.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered system_admin/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 493ms (Views: 456.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/system_admin" for 127.0.0.1 at 2018-03-01 20:07:14 -0500
+Processing by SystemAdminController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering system_admin/index.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered system_admin/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 556ms (Views: 491.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/recruiter" for 127.0.0.1 at 2018-03-01 20:07:19 -0500
+Processing by RecruiterController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:4
+  Rendering recruiter/new.html.erb within layouts/application
+  Rendered recruiter/new.html.erb within layouts/application (711.2ms)
+Completed 500 Internal Server Error in 925ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"companies", :id=>nil}, missing required keys: [:id]):
+    15: <%= link_to 'View  job posting posted by me', '/recruiter/view_jobs' %><br>
+    16: <%= link_to 'New company', new_company_path %><br>
+    17: <%= link_to 'View Profile', recruiter_view_path %><br>
+    18: <%= link_to 'View company', edit_company_path(@recruiters.company) %><br>
+    19: 
+    20: </body>
+    21: 
+  
+app/views/recruiter/new.html.erb:18:in `_app_views_recruiter_new_html_erb__1441939109_86624260'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:8
+  [1m[36mCompany Load (0.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mUser Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."usertype" = ? LIMIT ?[0m  [["email", "admin517@gmail.com"], ["usertype", "0"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:8
+Started GET "/system_admin" for 127.0.0.1 at 2018-03-01 20:11:26 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Users/IDYA/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0.rc1/lib/active_record/log_subscriber.rb:98
+Processing by SystemAdminController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering system_admin/index.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered system_admin/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 1967ms (Views: 1833.3ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/job_seeker_home" for 127.0.0.1 at 2018-03-01 20:11:34 -0500
+Processing by JobSeekerController#home as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering job_seeker/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  [1m[36mJobApplication Load (0.0ms)[0m  [1m[34mSELECT "job_applications".* FROM "job_applications" WHERE (user_id = 7)[0m
+  ↳ app/views/job_seeker/home.html.erb:23
+  Rendered job_seeker/home.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 499ms (Views: 475.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/recruiter" for 127.0.0.1 at 2018-03-01 20:11:57 -0500
+Processing by RecruiterController#new as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:4
+  Rendering recruiter/new.html.erb within layouts/application
+  Rendered recruiter/new.html.erb within layouts/application (457.3ms)
+Completed 500 Internal Server Error in 706ms (ActiveRecord: 3.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"companies", :id=>nil}, missing required keys: [:id]):
+    15: <%= link_to 'View  job posting posted by me', '/recruiter/view_jobs' %><br>
+    16: <%= link_to 'New company', new_company_path %><br>
+    17: <%= link_to 'View Profile', recruiter_view_path %><br>
+    18: <%= link_to 'View company', edit_company_path(@recruiters.company) %><br>
+    19: 
+    20: </body>
+    21: 
+  
+app/views/recruiter/new.html.erb:18:in `_app_views_recruiter_new_html_erb__812688369_119727080'
+Started GET "/system_admin" for 127.0.0.1 at 2018-03-01 20:14:27 -0500
+Processing by SystemAdminController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering system_admin/index.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered system_admin/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 475ms (Views: 426.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/recruiter" for 127.0.0.1 at 2018-03-01 20:14:31 -0500
+Processing by RecruiterController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:4
+  Rendering recruiter/new.html.erb within layouts/application
+  Rendered recruiter/new.html.erb within layouts/application (15.6ms)
+Completed 500 Internal Server Error in 297ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (C:/Users/IDYA/RubymineProjects/Program_2/app/views/recruiter/new.html.erb:18: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+urrent_user.company == 'nil' );@output_buffer.safe_append='
+                              ^
+C:/Users/IDYA/RubymineProjects/Program_2/app/views/recruiter/new.html.erb:20: syntax error, unexpected keyword_end
+ze;@output_buffer.append=( end);@output_buffer.safe_append='
+                              ^
+C:/Users/IDYA/RubymineProjects/Program_2/app/views/recruiter/new.html.erb:25: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+                ^
+C:/Users/IDYA/RubymineProjects/Program_2/app/views/recruiter/new.html.erb:27: syntax error, unexpected keyword_end, expecting ')'
+          end
+             ^):
+  
+app/views/recruiter/new.html.erb:18: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+app/views/recruiter/new.html.erb:20: syntax error, unexpected keyword_end
+app/views/recruiter/new.html.erb:25: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/recruiter/new.html.erb:27: syntax error, unexpected keyword_end, expecting ')'
+Started GET "/system_admin" for 127.0.0.1 at 2018-03-01 20:17:09 -0500
+Processing by SystemAdminController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering system_admin/index.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered system_admin/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 533ms (Views: 475.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/recruiter" for 127.0.0.1 at 2018-03-01 20:17:12 -0500
+Processing by RecruiterController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:4
+  Rendering recruiter/new.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered recruiter/new.html.erb within layouts/application (367.6ms)
+Completed 500 Internal Server Error in 561ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"companies", :id=>nil}, missing required keys: [:id]):
+    15: <%= link_to 'View  job posting posted by me', '/recruiter/view_jobs' %><br>
+    16: <%= link_to 'New company', new_company_path %><br>
+    17: <%= link_to 'View Profile', recruiter_view_path %><br>
+    18: <%=unless current_user.company == 'nil' then link_to 'View company', edit_company_path(@recruiters.company)end%>
+    19: </body>
+    20: 
+    21: </html>
+  
+app/views/recruiter/new.html.erb:18:in `_app_views_recruiter_new_html_erb__812688369_113678320'
+Started GET "/recruiter" for 127.0.0.1 at 2018-03-01 20:18:24 -0500
+Processing by RecruiterController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:3
+  [1m[36mCACHE User Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:4
+  Rendering recruiter/new.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered recruiter/new.html.erb within layouts/application (402.3ms)
+Completed 500 Internal Server Error in 605ms (ActiveRecord: 2.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"companies", :id=>nil}, missing required keys: [:id]):
+    15: <%= link_to 'View  job posting posted by me', '/recruiter/view_jobs' %><br>
+    16: <%= link_to 'New company', new_company_path %><br>
+    17: <%= link_to 'View Profile', recruiter_view_path %><br>
+    18: <%=if current_user.company != 'nil' then link_to 'View company', edit_company_path(@recruiters.company)end%>
+    19: </body>
+    20: 
+    21: </html>
+  
+app/views/recruiter/new.html.erb:18:in `_app_views_recruiter_new_html_erb__812688369_116400360'
+Started POST "/login" for 127.0.0.1 at 2018-03-01 20:19:52 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LHQObr67kUsuhXkExcirujSavvL6TM+kseIMbLjx1MessJqC+j03P/HbS35MrpeLy0qcldpCjz7C4sYd6b717A==", "email"=>"admin517@gmail.com", "password"=>"[FILTERED]", "usertype"=>"", "commit"=>"Login"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin517@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7
+Redirected to http://localhost:3000/system_admin
+Completed 302 Found in 260ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/system_admin" for 127.0.0.1 at 2018-03-01 20:19:52 -0500
+Processing by SystemAdminController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering system_admin/index.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered system_admin/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 545ms (Views: 491.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/7/edit" for 127.0.0.1 at 2018-03-01 20:19:56 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (15.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:85
+  Rendering users/edit.html.erb within layouts/application
+  [1m[36mCompany Load (0.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  ↳ app/views/users/_form.html.erb:46
+  Rendered users/_form.html.erb (220.7ms)
+  Rendered users/edit.html.erb within layouts/application (269.6ms)
+Completed 200 OK in 763ms (Views: 711.9ms | ActiveRecord: 15.6ms)
+
+
+Started PATCH "/users/7" for 127.0.0.1 at 2018-03-01 20:20:03 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"b7poDMORXvAzGA8Znm4TP7KoGD5SSNBb9G5msSeM78yF81SYzmL9rEYg72UZ9mEsszBe84InU3kkLSLLqeDAMg==", "user"=>{"name"=>"Admin", "email"=>"admin517@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "usertype"=>"", "phone"=>"9123456780", "company_id"=>"2"}, "commit"=>"Update User", "id"=>"7"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:85
+Unpermitted parameter: :usertype
+  [1m[35m (1.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:61
+  [1m[36mCompany Load (1.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:61
+  [1m[36mUser Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? AND "users"."usertype" = ? LIMIT ?[0m  [["email", "admin517@gmail.com"], ["id", 7], ["usertype", "0"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:61
+  [1m[36mUser Update (4.0ms)[0m  [1m[33mUPDATE "users" SET "company_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["company_id", 2], ["updated_at", "2018-03-02 01:20:03.541377"], ["id", 7]]
+  ↳ app/controllers/users_controller.rb:61
+  [1m[35m (164.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:61
+Redirected to http://localhost:3000/users
+Completed 302 Found in 217ms (ActiveRecord: 172.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-03-01 20:20:03 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:17
+  Rendered users/index.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 572ms (Views: 525.7ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/users/7" for 127.0.0.1 at 2018-03-01 20:21:52 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Bu0yXyv9+t3CobGJCl4QXI53C1oac4TIkoRtVeilze+GKaazb3tcqR3/g/ODOCxtcacpPTp9xFLhhKckuersxA==", "user"=>{"name"=>"Admin", "email"=>"admin517@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "usertype"=>"", "phone"=>"9123456780", "company_id"=>"2"}, "commit"=>"Update User", "id"=>"7"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:85
+Unpermitted parameter: :usertype
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:61
+  [1m[36mCompany Load (0.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:61
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? AND "users"."usertype" = ? LIMIT ?[0m  [["email", "admin517@gmail.com"], ["id", 7], ["usertype", "0"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:61
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:61
+Redirected to http://localhost:3000/users
+Completed 302 Found in 35ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-03-01 20:21:52 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:17
+  Rendered users/index.html.erb within layouts/application (15.0ms)
+Started GET "/users/7" for 127.0.0.1 at 2018-03-01 20:21:53 -0500
+Completed 200 OK in 712ms (Views: 662.3ms | ActiveRecord: 1.0ms)
+
+
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:85
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 842ms (Views: 620.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-01 20:28:38 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (436.9ms)
+Completed 200 OK in 694ms (Views: 643.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-03-01 20:28:49 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gI6BQ+Y7ilRCD/WIrNtkHDUicj+yz9U0BNTi7/WfE0QAShWvor0sIJ1Rx/IlvVgtyvJQWJLBla531CiepNAybw==", "email"=>"admin517@gmail.com", "password"=>"[FILTERED]", "usertype"=>"", "commit"=>"Login"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin517@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7
+Redirected to http://localhost:3000/system_admin
+Completed 302 Found in 276ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/system_admin" for 127.0.0.1 at 2018-03-01 20:28:50 -0500
+Processing by SystemAdminController#index as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering system_admin/index.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered system_admin/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 532ms (Views: 473.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/recruiter" for 127.0.0.1 at 2018-03-01 20:28:54 -0500
+Processing by RecruiterController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:4
+  Rendering recruiter/new.html.erb within layouts/application
+  [1m[36mCompany Load (0.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/recruiter/new.html.erb:18
+  Rendered recruiter/new.html.erb within layouts/application (338.1ms)
+Completed 200 OK in 637ms (Views: 567.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/recruiter" for 127.0.0.1 at 2018-03-01 20:29:42 -0500
+Processing by RecruiterController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:4
+  Rendering recruiter/new.html.erb within layouts/application
+  [1m[36mCompany Load (1.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/recruiter/new.html.erb:16
+  Rendered recruiter/new.html.erb within layouts/application (373.2ms)
+Completed 200 OK in 628ms (Views: 561.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2018-03-01 20:29:45 -0500
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:18
+  Rendering jobs/new.html.erb within layouts/application
+  Rendered jobs/_form.html.erb (20.0ms)
+  Rendered jobs/new.html.erb within layouts/application (70.1ms)
+Completed 200 OK in 716ms (Views: 631.8ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/recruiter" for 127.0.0.1 at 2018-03-01 20:29:50 -0500
+Processing by RecruiterController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:4
+  Rendering recruiter/new.html.erb within layouts/application
+  [1m[36mCompany Load (1.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/recruiter/new.html.erb:16
+  Rendered recruiter/new.html.erb within layouts/application (556.1ms)
+Completed 200 OK in 885ms (Views: 820.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/recruiter/view_jobs" for 127.0.0.1 at 2018-03-01 20:29:52 -0500
+Processing by RecruiterController#view_jobs as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:39
+Completed 406 Not Acceptable in 3182ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::UnknownFormat (RecruiterController#view_jobs is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.2.0.rc1) lib/action_controller/metal/implicit_render.rb:55:in `default_render'
+actionpack (5.2.0.rc1) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (5.2.0.rc1) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (5.2.0.rc1) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (5.2.0.rc1) lib/abstract_controller/base.rb:194:in `process_action'
+actionpack (5.2.0.rc1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.2.0.rc1) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (5.2.0.rc1) lib/active_support/callbacks.rb:132:in `run_callbacks'
+actionpack (5.2.0.rc1) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.0.rc1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.0.rc1) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.0.rc1) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.0.rc1) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.0.rc1) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.0.rc1) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.0.rc1) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.0.rc1) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.0.rc1) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.0.rc1) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.0.rc1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.0.rc1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.0.rc1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.0.rc1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.0.rc1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.0.rc1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.0.rc1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.0.rc1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+omniauth (1.8.1) lib/omniauth/strategy.rb:190:in `call!'
+omniauth (1.8.1) lib/omniauth/strategy.rb:168:in `call'
+omniauth (1.8.1) lib/omniauth/builder.rb:63:in `call'
+rack (2.0.4) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.4) lib/rack/etag.rb:25:in `call'
+rack (2.0.4) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.4) lib/rack/head.rb:12:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.4) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.4) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/cookies.rb:663:in `call'
+activerecord (5.2.0.rc1) lib/active_record/migration.rb:558:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.0.rc1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0.rc1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0.rc1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0.rc1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0.rc1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0.rc1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0.rc1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0.rc1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0.rc1) lib/rails/engine.rb:524:in `call'
+puma (3.11.2) lib/puma/configuration.rb:225:in `call'
+puma (3.11.2) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.2) lib/puma/server.rb:438:in `process_client'
+puma (3.11.2) lib/puma/server.rb:302:in `block in run'
+puma (3.11.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/recruiter" for 127.0.0.1 at 2018-03-01 20:30:35 -0500
+Processing by RecruiterController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:4
+  Rendering recruiter/new.html.erb within layouts/application
+  [1m[36mCompany Load (0.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/recruiter/new.html.erb:16
+  Rendered recruiter/new.html.erb within layouts/application (424.3ms)
+Completed 200 OK in 778ms (Views: 709.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/recruiter" for 127.0.0.1 at 2018-03-01 20:30:36 -0500
+Processing by RecruiterController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:4
+  Rendering recruiter/new.html.erb within layouts/application
+  [1m[36mCompany Load (1.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/recruiter/new.html.erb:16
+  Rendered recruiter/new.html.erb within layouts/application (414.3ms)
+Completed 200 OK in 726ms (Views: 629.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/recruiter" for 127.0.0.1 at 2018-03-01 20:30:37 -0500
+Started GET "/recruiter" for 127.0.0.1 at 2018-03-01 20:30:37 -0500
+Processing by RecruiterController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Processing by RecruiterController#new as HTML
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:3
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:4
+  ↳ app/controllers/recruiter_controller.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:4
+Started GET "/recruiter/view_jobs" for 127.0.0.1 at 2018-03-01 20:30:38 -0500
+  Rendering recruiter/new.html.erb within layouts/application
+  Rendering recruiter/new.html.erb within layouts/application
+Processing by RecruiterController#view_jobs as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:39
+Completed 406 Not Acceptable in 2340ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionController::UnknownFormat (RecruiterController#view_jobs is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.2.0.rc1) lib/action_controller/metal/implicit_render.rb:55:in `default_render'
+actionpack (5.2.0.rc1) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (5.2.0.rc1) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (5.2.0.rc1) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (5.2.0.rc1) lib/abstract_controller/base.rb:194:in `process_action'
+actionpack (5.2.0.rc1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.2.0.rc1) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (5.2.0.rc1) lib/active_support/callbacks.rb:132:in `run_callbacks'
+actionpack (5.2.0.rc1) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.0.rc1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.0.rc1) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.0.rc1) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.0.rc1) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.0.rc1) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.0.rc1) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.0.rc1) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.0.rc1) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.0.rc1) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.0.rc1) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.0.rc1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.0.rc1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.0.rc1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.0.rc1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.0.rc1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.0.rc1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.0.rc1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.0.rc1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+omniauth (1.8.1) lib/omniauth/strategy.rb:190:in `call!'
+omniauth (1.8.1) lib/omniauth/strategy.rb:168:in `call'
+omniauth (1.8.1) lib/omniauth/builder.rb:63:in `call'
+rack (2.0.4) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.4) lib/rack/etag.rb:25:in `call'
+rack (2.0.4) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.4) lib/rack/head.rb:12:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.4) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.4) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/cookies.rb:663:in `call'
+activerecord (5.2.0.rc1) lib/active_record/migration.rb:558:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.0.rc1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0.rc1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0.rc1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0.rc1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0.rc1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0.rc1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0.rc1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0.rc1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0.rc1) lib/rails/engine.rb:524:in `call'
+puma (3.11.2) lib/puma/configuration.rb:225:in `call'
+puma (3.11.2) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.2) lib/puma/server.rb:438:in `process_client'
+puma (3.11.2) lib/puma/server.rb:302:in `block in run'
+puma (3.11.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[36mCompany Load (1.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCompany Load (1.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/recruiter/new.html.erb:16
+  ↳ app/views/recruiter/new.html.erb:16
+  Rendered recruiter/new.html.erb within layouts/application (3103.2ms)
+  Rendered recruiter/new.html.erb within layouts/application (3119.2ms)
+Completed 200 OK in 3898ms (Views: 3633.7ms | ActiveRecord: 1.0ms)
+
+
+Completed 200 OK in 3827ms (Views: 3556.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/recruiter" for 127.0.0.1 at 2018-03-01 20:30:43 -0500
+Processing by RecruiterController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Started GET "/system_admin" for 127.0.0.1 at 2018-03-01 20:30:45 -0500
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:3
+Processing by SystemAdminController#index as HTML
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/recruiter_controller.rb:4
+  ↳ app/controllers/application_controller.rb:6
+  Rendering recruiter/new.html.erb within layouts/application
+  Rendering system_admin/index.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered system_admin/index.html.erb within layouts/application (1565.1ms)
+  Rendered recruiter/new.html.erb within layouts/application (4341.2ms)
+Completed 500 Internal Server Error in 14804ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (can't add a new key into hash during iteration):
+    1: <!DOCTYPE html>
+    2: <html>
+    3: <head>
+    4:   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    5:   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    6:   <%= csrf_meta_tags %>
+    7: </head>
+  
+app/views/recruiter/new.html.erb:4:in `_app_views_recruiter_new_html_erb__812688369_113120260'
+Completed 200 OK in 12699ms (Views: 9448.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/system_admin" for 127.0.0.1 at 2018-03-01 20:31:00 -0500
+Processing by SystemAdminController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering system_admin/index.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered system_admin/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 598ms (Views: 543.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/system_admin" for 127.0.0.1 at 2018-03-01 20:31:01 -0500
+Processing by SystemAdminController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering system_admin/index.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered system_admin/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 645ms (Views: 559.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/system_admin" for 127.0.0.1 at 2018-03-01 20:31:02 -0500
+Processing by SystemAdminController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering system_admin/index.html.erb within layouts/application
+  [1m[36mCACHE User Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered system_admin/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 13838ms (Views: 13733.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/system_admin" for 127.0.0.1 at 2018-03-01 20:31:18 -0500
+Started GET "/system_admin" for 127.0.0.1 at 2018-03-01 20:31:18 -0500
+Processing by SystemAdminController#index as HTML
+Processing by SystemAdminController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  ↳ app/controllers/application_controller.rb:6
+  Rendering system_admin/index.html.erb within layouts/application
+  Rendering system_admin/index.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  Rendered system_admin/index.html.erb within layouts/application (4.0ms)
+  ↳ app/controllers/application_controller.rb:13
+  Rendered system_admin/index.html.erb within layouts/application (20.0ms)
+Completed 500 Internal Server Error in 3572ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (can't add a new key into hash during iteration):
+     5:     <%= csrf_meta_tags %>
+     6: 
+     7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+     9:   </head>
+    10: 
+    11:   <body>
+  
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__830866788_34655340'
+Completed 200 OK in 3896ms (Views: 1210.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/job_seeker_home" for 127.0.0.1 at 2018-03-01 20:31:36 -0500
+Processing by JobSeekerController#home as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering job_seeker/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+  [1m[36mJobApplication Load (1.0ms)[0m  [1m[34mSELECT "job_applications".* FROM "job_applications" WHERE (user_id = 7)[0m
+  ↳ app/views/job_seeker/home.html.erb:23
+  Rendered job_seeker/home.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 2017ms (Views: 611.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-02 11:30:55 -0500
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Users/IDYA/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0.rc1/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2000.1ms)
+Completed 200 OK in 2260ms (Views: 2199.8ms | ActiveRecord: 0.0ms)
+
+

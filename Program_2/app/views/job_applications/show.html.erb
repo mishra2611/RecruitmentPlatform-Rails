@@ -1,0 +1,75 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Job application view page</h1>
+
+<p>
+  <strong>Job ID:</strong>
+  <%= @job_application.job_id %>
+</p>
+
+<p>
+  <strong>Applicant Name:</strong>
+  <%= @job_application.user.name %>
+</p>
+
+<p>
+  <strong>Current Company:</strong>
+  <%= @job_application.user.company.name %>
+</p>
+
+<p>
+  <strong>Linkedin:</strong>
+  <%= @job_application.linkedin %>
+</p>
+
+<p>
+  <strong>Portfolio:</strong>
+  <%= @job_application.portfolio %>
+</p>
+
+<p>
+  <strong>Additionalinfo:</strong>
+  <%= @job_application.additionalinfo %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @job_application.gender %>
+</p>
+
+<p>
+  <strong>Race:</strong>
+  <%= @job_application.race %>
+</p>
+
+<p>
+  <strong>Veteran:</strong>
+  <%= @job_application.veteran %>
+</p>
+
+<p>
+  <strong>Disability:</strong>
+  <%= @job_application.disability %>
+</p>
+
+<p>
+  <strong>Resume:</strong>
+  <%= link_to 'View Uploaded Resume',@job_application.resume.url%>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @job_application.status.to_s %>
+</p>
+
+<%= if session[:usertype]=='1' then
+      link_to 'Back', job_seeker_home_url
+      end %>
+
+<%= if session[:usertype]=='2' then
+      link_to 'Back', recruiter_url
+      end %>
+
+<%= if session[:usertype]=='0' then
+      link_to 'Back', system_admin_url
+      end %>

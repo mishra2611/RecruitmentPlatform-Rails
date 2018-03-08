@@ -1,0 +1,14 @@
+default: &default
+  oauth2:
+    client_id: 268208445361-hefj5g5dmmae7t0emuca1pnn0j1c8s0e.apps.googleusercontent.com
+    client_secret: zdoweuxQeMm7tjTyzw7NhNye
+  #cloud_storage:
+   # bucket: your-bucket-name
+    #access_key_id: your-access-key-id
+    #secret_access_key: your-secret-access-key
+
+development:
+  <<: *default
+
+production:
+  <<: *default

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  employment: MyString
+  responsibilities: MyText
+  requirements: MyText
+
+two:
+  description: MyText
+  employment: MyString
+  responsibilities: MyText
+  requirements: MyText

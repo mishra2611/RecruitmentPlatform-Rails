@@ -1,0 +1,72 @@
+<h1>Job Search Page</h1>
+
+<%= link_to "Search Jobs", job_seeker_jobs_list_url%>
+<br>
+<%= link_to "Edit profile", job_seeker_edit_url%>
+<br>
+<br>
+
+<table>
+  <thead>
+  <tr>
+    <th>Company</th>
+    <th>Industry</th>
+    <th>Description</th>
+    <th>Location</th>
+    <th>Company Size</th>
+    <th>Employment</th>
+    <th>Responsibilities</th>
+    <th>Requirements</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @jobs.each do |job| %>
+    <tr>
+      <td><%= link_to job.company.name, job.company %></td>
+      <td><%= job.company.industry %></td>
+      <td><%= job.description %></td>
+      <td><%= job.company.hq %></td>
+      <td><%= job.company.size %></td>
+      <td><%= job.employment %></td>
+      <td><%= job.responsibilities %></td>
+      <td><%= job.requirements %></td>
+      <td><%= link_to_if(JobApplication.where(user_id: session[:user_id]).where(job_id: job.id).count()==0,
+                             'Apply', new_job_application_path(:job_id => job.id)) %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+
+
+</table>
+
+<br>
+<br>
+<br>
+<h3>Filters</h3>
+
+<%= form_tag job_seeker_jobs_filtered_list_url do%>
+
+  <%= label_tag "company" %>
+  <%= select_tag("company",options_from_collection_for_select(@companies,"id","name"), :include_blank => "All") %>
+  <br>
+  <%= label_tag "employment" %>
+  <%= select_tag("employment",options_for_select(Job.all.select(:employment).map(&:employment).uniq()), :include_blank => "All") %>
+  <br>
+  <%= label_tag "industry" %>
+  <%= select_tag("industry",options_for_select(@companies.select(:industry).map(&:industry).uniq()), :include_blank => "All") %>
+  <br>
+  <%= label_tag "size" %>
+  <%= select_tag("size",options_for_select(@companies.select(:size).map(&:size).uniq()), :include_blank => "All") %>
+  <br>
+  <%= label_tag "hq" %>
+  <%= select_tag("hq",options_for_select(@companies.select(:hq).map(&:hq).uniq()), :include_blank => "All") %>
+  <br><br>
+  <%= submit_tag 'Apply Filters' %>
+
+<% end %>
+<br>
+<%= link_to "Back", job_seeker_home_url%>
+

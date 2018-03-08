@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Job finding system</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+ <fieldset>
+  <h1 style="color:blue";> Recruiting and Applicant Tracking System </h1>
+ </fieldset>
+
+  <% if !session[:usertype].nil? %>
+  <fieldset>
+    <% if session[:usertype] == '0' then %>
+      <%= link_to "Home" , system_admin_url %> &nbsp; | &nbsp;
+      <%= link_to "Switch to Job Seeker", job_seeker_home_url %>  &nbsp; | &nbsp;
+      <%= link_to "Switch to Recruiter", recruiter_url %>  &nbsp; | &nbsp;
+    <% elsif session[:usertype] == '1' then %>
+      <%= link_to "Home" , job_seeker_home_url %>  &nbsp; | &nbsp;
+      <%= link_to "Switch to Recruiter", recruiter_url %>  &nbsp; | &nbsp;
+    <% elsif session[:usertype] == '2' then %>
+      <%= link_to "Home" , recruiter_url %>  &nbsp; | &nbsp;
+      <%= link_to "Switch to Job Seeker", job_seeker_home_url %>  &nbsp; | &nbsp;
+    <% end %>
+    <% if session[:email] == "admin517@gmail.com" && session[:usertype] != '0' then %>
+      <%= link_to "Switch to Admin", system_admin_url %>  &nbsp; | &nbsp;
+    <% end %>
+    <%= link_to "Logout", sessions_destroy_path %> &nbsp; &nbsp;
+    <br>
+  <% end %>
+  </fieldset>
+  <%= yield %>
+  </body>
+
+  <br>
+
+<br>
+
+</html>

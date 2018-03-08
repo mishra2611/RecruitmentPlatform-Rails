@@ -1,0 +1,39 @@
+<fieldset>
+
+  <p><b>Logged in as <%= current_user.name %> !!</b></p>
+<p> <b>Current user Role : Job-seeker</b> </p>
+</fieldset>
+<fieldset>
+<%= link_to "Search Jobs", job_seeker_jobs_list_url%>
+<br>
+<%if session[:email] != 'admin517@gmail.com' then %>
+<%= link_to "Edit profile", job_seeker_edit_url%>
+<% end %>
+<p id="notice"><%= notice %></p>
+</fieldset>
+<fieldset>
+<table>
+  <thead>
+  <tr>
+    <th>Job ID</th>
+    <th>Company</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th colspan="2"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @job_applications.each do |job_application| %>
+    <tr>
+      <td><%= job_application.job_id %></td>
+      <td><%= job_application.job.company.name %></td>
+      <td><%= job_application.job.description %></td>
+      <td><%= job_application.status.to_s %></td>
+      <td><%= link_to 'View', job_application %></td>
+      <td><%= link_to 'Withdraw', job_application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+</fieldset>

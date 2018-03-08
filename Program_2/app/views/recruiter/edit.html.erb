@@ -1,0 +1,12 @@
+<%= form_for @recruiters, controller:"recruiter", action: "update", html: {class: "update"} do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <%= f.label :phone %>
+  <%= f.text_field :phone %>
+  <%= f.label :Company  %>
+  <%= f.collection_select :company_id, Company.order(:name), :id, :name,{:include_blank => 'No Company'} %>
+  <%= f.submit "Confirm" %>
+<% end %>

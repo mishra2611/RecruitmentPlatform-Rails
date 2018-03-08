@@ -1,0 +1,9 @@
+<h1>New Company</h1>
+
+<%= render 'form', company: @company %>
+
+<% if session[:usertype] == '0' then %>
+  <%= link_to 'Back', system_admin_path%>
+<% else %>
+  <%= link_to 'Back', recruiter_url %>
+<% end %>

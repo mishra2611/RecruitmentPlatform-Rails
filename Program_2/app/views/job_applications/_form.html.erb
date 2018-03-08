@@ -1,0 +1,70 @@
+<%= form_with(model: job_application, local: true) do |form| %>
+  <% if job_application.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(job_application.errors.count, "error") %> prohibited this job_application from being saved:</h2>
+
+      <ul>
+      <% job_application.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :job_id, :value => params[:job_id].to_i %>
+  <%= form.hidden_field :user_id, :value => session[:user_id].to_i %>
+  <%= form.hidden_field :status, :value => :received %>
+
+  <div class="field">
+    <%= form.label :linkedin %>
+    <%= form.text_field :linkedin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :portfolio %>
+    <%= form.text_field :portfolio %>
+  </div>
+
+  <div class="field">
+    <%= form.label :additionalinfo %>
+    <%= form.text_area :additionalinfo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gender %>
+    <%= form.select :gender, "<option>Male</option><option>Female</option><option>Do not specify</option>".html_safe %>
+  </div>
+
+  <div class="field">
+    <%= form.label :race %>
+    <%= form.select :race, "<option>American Indian or Alaska Native</option><option>Asian</option>
+          <option>Black or African American</option>
+          <option>Native Hawaiian or Other Pacific Islander</option>
+          <option>White</option>
+          <option>Decline to self-identify</oprion>".html_safe %>
+  </div>
+
+  <div class="field">
+    <%= form.label :veteran %>
+    <%= form.select :veteran, "<option>Protected Veteran</option>
+        <option>Not a veteran</option>
+        <option>Veteran but not protected</option>
+        <option>Decline to self-identify</option>".html_safe%>
+  </div>
+
+  <div class="field">
+    <%= form.label :disability %>
+    <%= form.select :disability, "<option>Disabled</option>
+    <option>Not disabled</option>
+    <option>Do not disclose</option>".html_safe %>
+  </div>
+
+  <div class="field">
+    <%= form.label :resume %>
+    <%= form.file_field :resume %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Submit Application'%>
+  </div>
+<% end %>
